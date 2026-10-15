@@ -9,7 +9,7 @@ from sqlalchemy import or_, UniqueConstraint
 from urllib.parse import quote_plus
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-change-this-secret-before-deployment')
 database_url = os.getenv('DATABASE_URL', '').strip()
 # Render PostgreSQL URLs may use the legacy postgres:// scheme; SQLAlchemy expects postgresql://.
